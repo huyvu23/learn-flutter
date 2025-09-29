@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'MyScaffold.dart';
+// import 'MyScaffold.dart';
+import 'MyAppBar.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: const MyScaffold(),
+      home: const MyAppBar(),
     );
   }
 }
