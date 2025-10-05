@@ -28,7 +28,7 @@ class MyButton2 extends StatelessWidget {
           ),
         ],
       ),
-      backgroundColor: Colors.red[400],
+      // backgroundColor: Colors.red[400],
       body: Center(
         child: Column(
           children: [
@@ -47,6 +47,19 @@ class MyButton2 extends StatelessWidget {
                 padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
               ),
               child: Text('ElevatedButton', style: TextStyle(fontSize: 24)),
+            ),
+            // InkWell : không phải là button
+            InkWell(
+              onTap: () {
+                print('tap');
+              },
+              child: Container(
+                child: Text('Không phải button'),
+                padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                decoration: BoxDecoration(
+                  border: Border.all(color: Colors.blue),
+                ),
+              ),
             ),
           ],
         ),
