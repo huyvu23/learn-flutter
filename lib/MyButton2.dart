@@ -33,8 +33,13 @@ class MyButton2 extends StatelessWidget {
         child: Column(
           children: [
             ElevatedButton(
+              // để là null sẽ tương đương với disabled
+              // onPressed: null,
               onPressed: () {
-                print('ElevatedButton');
+                print('Pressed');
+              },
+              onLongPress: () {
+                print('Long pressed');
               },
               style: ElevatedButton.styleFrom(
                 elevation: 15,
@@ -52,6 +57,9 @@ class MyButton2 extends StatelessWidget {
             InkWell(
               onTap: () {
                 print('tap');
+              },
+              onDoubleTap: () {
+                print('Double Tap');
               },
               child: Container(
                 child: Text('Không phải button'),
