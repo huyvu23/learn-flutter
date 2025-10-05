@@ -4,7 +4,8 @@ import 'package:flutter/material.dart';
 // import 'MyText.dart';
 // import 'MyContainer.dart';
 // import 'MyColumnAndRow.dart';
-import 'MyButton.dart';
+// import 'MyButton.dart';
+import 'MyButton2.dart';
 
 void main() {
   runApp(const MyApp());
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: const MyButton(),
+      home: const MyButton2(),
     );
   }
 }
