@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class DropdownDemo extends StatefulWidget {
   @override
@@ -8,6 +9,30 @@ class DropdownDemo extends StatefulWidget {
 class _DropdownDemoState extends State<DropdownDemo> {
   String? _selectedCity;
   String? _selectedOption;
+  // State variable to store the selected date.
+  final TextEditingController _dateController = TextEditingController();
+
+  // Method to show the date picker.
+  void _presentDatePicker() async {
+    final now = DateTime.now();
+    final firstDate = DateTime(now.year - 100, now.month, now.day);
+
+    final pickedDate = await showDatePicker(
+      context: context,
+      initialDate: now,
+      firstDate: firstDate,
+      lastDate: now,
+    );
+
+    // 2. Cập nhật text của controller sau khi người dùng chọn ngày
+    if (pickedDate != null) {
+      String formattedDate = DateFormat('dd/MM/yyyy').format(pickedDate);
+      setState(() {
+        _dateController.text = formattedDate;
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -83,6 +108,18 @@ class _DropdownDemoState extends State<DropdownDemo> {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
+                const SizedBox(height: 20),
+                TextFormField(
+                  controller: _dateController, // Gắn controller
+                  readOnly: true, // Ngăn người dùng nhập văn bản bằng bàn phím
+                  decoration: const InputDecoration(
+                    labelText: 'Select your birth date',
+                    suffixIcon: Icon(Icons.calendar_today), // Thêm icon cho đẹp
+                    border: OutlineInputBorder(),
+                  ),
+                  onTap: _presentDatePicker, // Gọi hàm khi người dùng nhấn vào
+                ),
+                const SizedBox(height: 20),
                 Container(
                   height: 200,
                   color: Colors.red,
